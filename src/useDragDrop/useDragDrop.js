@@ -2,7 +2,7 @@ import React, { useEffect, useState, useMemo, createContext, useContext, useRedu
 import uuid from '../uuidv4/uuid.js';
 
 const initialDnDState = {
-  draggedFrom: null,
+  draggingId: null,
   draggedTo: null,
   isDragging: false,
   originalOrder: [],
@@ -11,30 +11,32 @@ const initialDnDState = {
 
 const DnDContext = createContext();
 
-export const useDrag = () => {
-  return null;
-};
-
-export const useDrop = () => {
-  return null;
-};
-
-
 function reducer(state, item) {
   return [...state, item]
 }
 
+export const useDrag = () => {
+  const [state, setState] = useContext(DnDContext)
+  return null;
+};
+
+export const useDrop = () => {
+  const [state, setState] = useContext(DnDContext)
+
+  return null;
+};
+
 export const DndProvider = ({children}) => {
-  const [state, setState] = useReducer(reducer, initialDnDState);
+  const [state, setState] = useState(initialDnDState);
 return (
   <>
-  <DnDContext.Provider value={{state, setState}}> {children} </DnDContext.Provider>
+  <DnDContext.Provider value={[state, setState]}> {children} </DnDContext.Provider>
   </>
   )
 }
 
 export const Draggable = ({children, onDragStart=() => {}}) => {
-  const state = useContext(DnDContext)
+  const [state, setState] = useContext(DnDContext)
   console.log("state", state)
   const dragStart = (event) => {
     console.log(event.currentTarget.dataset.position)
@@ -42,11 +44,11 @@ export const Draggable = ({children, onDragStart=() => {}}) => {
     // of the current element dragged
     const initialPosition = event.currentTarget.dataset.position;
   
-    // setState((state) => ({
-    //   ...state, 
-    //   draggedFrom: initialPosition, // set the draggedFrom position
-    //   isDragging: true, 
-    // }));
+    setState((state) => ({
+      ...state, 
+      draggingId: initialPosition, // set the draggedFrom position
+      isDragging: true, 
+    }));
   
     // Note: this is only for Firefox.
     // Without it, the DnD won't work.
@@ -63,12 +65,17 @@ export const Draggable = ({children, onDragStart=() => {}}) => {
   )};
 
 export const Droppable = ({children, onDragOver = () => {}, onDrop = () => {}}) => {
-
+  const [state, setState] = useContext(DnDContext)
   const dragOver = (event) => {
     event.preventDefault();
     return onDragOver(event)
   }
   const drop = (event) => {
+    setState((state) => ({
+      ...state,
+      isDragging: false,
+      draggingId: null
+    }))
     return onDrop(event)
   }
   const memoizedValue = useMemo(() => uuid(), [initialDnDState.originalOrder]);
