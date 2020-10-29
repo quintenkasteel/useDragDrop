@@ -1,4 +1,4 @@
-# Getting Started with UseSwipe
+# Getting Started with UseDragAndDrop
 A simple to use library that provides useSwipe hook for React that enables swipe gestures for touch screens.
 
 ## Usage

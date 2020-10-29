@@ -1,3 +1,2 @@
-import useSwipe from './useSwipe/useSwipe'
-
-export default useSwipe
+import {useDrag, useDrop, Draggable, Droppable, DndProvider } from '../src/useDragDrop/useDragDrop.js';
+export {useDrag, useDrop, Draggable, Droppable, DndProvider } 

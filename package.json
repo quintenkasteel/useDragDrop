@@ -1,12 +1,10 @@
 {
-  "name": "@quintenkasteel/useswipe",
-  "version": "0.6.6",
+  "name": "@quintenkasteel/usedragdrop",
+  "version": "0.0.1",
   "main": "./lib/index.js",
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js",
-    "build": "node scripts/build.js",
-    "lib": "babel src --out-dir lib --copy-files",
-    "test": "node scripts/test.js --env=jsdom"
+    "build": "babel src --out-dir lib --copy-files"
   },
   "peerDependencies": {
     "react": "^16.8.6"
@@ -31,5 +29,28 @@
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.3.0",
     "styled-components": "^5.2.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quintenkasteel/usedragdrop.git"
+  },
+  "keywords": [
+    "useDragDrop",
+    "dnd",
+    "React",
+    "hooks",
+    "Drag and Drop",
+    "Drag",
+    "Drop",
+    "useDrag",
+    "useDrop",
+    "Mobile",
+    "react-dnd"
+  ],
+  "author": "Quinten Kasteel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quintenkasteel/usedragdrop/issues"
+  },
+  "homepage": "https://github.com/quintenkasteel/useswipe#readme"
 }
