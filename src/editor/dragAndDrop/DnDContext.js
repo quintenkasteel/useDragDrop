@@ -2,6 +2,7 @@ import React, { useState, createContext } from 'react';
 
 export const initialDnDState = {
   draggingId: null,
+  dragOverId: null,
   draggedTo: null,
   isDragging: false,
   originalOrder: [],

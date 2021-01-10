@@ -1,3 +1,5 @@
+[![Known Vulnerabilities](https://snyk.io/test/github/quintenkasteel/useDragDrop/badge.svg?targetFile=package.json)](https://snyk.io/test/github/quintenkasteel/useDragDrop?targetFile=package.json)
+
 # Getting Started with UseDragAndDrop
 A simple to use library that provides useSwipe hook for React that enables swipe gestures for touch screens.
 

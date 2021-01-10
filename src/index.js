@@ -1,8 +1,13 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Editor from "./editor/index";
 
-import { DndProvider } from '../src/useDragDrop/DnDContext.js';
-import Droppable from '../src/useDragDrop/Droppable.js';
-import Draggable from '../src/useDragDrop/Draggable.js';
-import useDrag from '../src/useDragDrop/UseDrag.js';
-import useDrop from '../src/useDragDrop/useDrop.js';
+const App = () => {
+  return (
+    <>
+      <Editor />
+    </>
+  );
+};
 
-export {useDrag, useDrop, Draggable, Droppable, DndProvider } 
+ReactDOM.render(<App />, document.querySelector('#root'));

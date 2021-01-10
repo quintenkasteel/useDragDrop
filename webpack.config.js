@@ -17,10 +17,10 @@ module.exports = env => {return {
   mode: 'development',
 
   // Entry point of app
-  entry: './demo/App.js',
+  entry: './src/index.js',
 
   output: {
-    path: __dirname + '/demo',
+    path: __dirname + '/src',
     publicPath: '/',
     filename: 'bundle.js'
   },
@@ -28,7 +28,7 @@ module.exports = env => {return {
   devServer: {
     // Serve index.html as the base
     contentBase: './lib',
-    
+
 
     // Enable compression
     compress: true,
@@ -65,7 +65,7 @@ module.exports = env => {return {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./demo/index.html",
+      template: "./src/index.html",
       filename: "./index.html"
     })
   ]

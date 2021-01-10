@@ -1,5 +1,5 @@
-import rng from '../uuid/rng.js';
-import stringify from '../uuid/Stringify.js';
+import rng from './uuid/rng.js';
+import stringify from './uuid/Stringify.js';
 
 function v4(options, buf, offset) {
   options = options || {};
